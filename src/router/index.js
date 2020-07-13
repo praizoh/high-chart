@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Bloodgroup from '../views/Bloodgroup.vue'
+import AgeRange from '../views/AgeRange.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Bloodgroup',
     component: Bloodgroup
+  },
+  {
+    path: '/agerange',
+    name: 'AgeRange',
+    component: AgeRange
   },
   
 ]

@@ -1,14 +1,22 @@
 <template>
-    <v-container>
-        <BarChart :data="count" v-if="load===true" />
+    <div>
+        <v-toolbar>
+            <v-spacer></v-spacer>
+            <v-btn to='/agerange'>Age range chart</v-btn>
+        </v-toolbar>
+        <v-container>
+        
+            <BarChart :data="count" v-if="load===true" />
 
-    </v-container>    
+        </v-container>
+    </div>
+        
 </template>
 
 <script>
 import BarChart from '../components/BarChart'; 
 import firebase from "../firebase";
-const db = firebase.firestore(); 
+const db = firebase.firestore();
 export default {
     name: 'Bloodgroup',
 
@@ -31,7 +39,7 @@ export default {
             if(!status){
                 let usersData = [];
                 usersData = JSON.parse(localStorage.getItem("usersData"))
-                console.log('offline getting', usersData)
+                console.log('offline getting')
                 // Get count 
                 if(!usersData){
                     alert('You are offline')
@@ -44,7 +52,6 @@ export default {
                     this.count[1]=b
                     this.count[2]=ab
                     this.count[3]=o
-                    console.log(this.count)
                     this.load=true
                     return usersData
                 }
@@ -61,7 +68,6 @@ export default {
                     name: doc.data().name,
                     bloodGroup: doc.data().blood_group,
                     });
-                    console.log(doc.id, " => ", doc.data());
                 });
                     localStorage.setItem("usersData", JSON.stringify(usersData))
                     console.log(usersData)
@@ -73,7 +79,6 @@ export default {
                     this.count[1]=b
                     this.count[2]=ab
                     this.count[3]=o
-                    console.log(this.count)
                     this.load=true
                     return usersData
                 })
