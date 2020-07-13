@@ -13,14 +13,14 @@ const data = {
     type: "bar"
   },
   title: {
-    text: "Historic World Population by Region"
+    text: "Number of patients by bloodgroup"
   },
   subtitle: {
     text:
-      'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+      'Source: <a href="https://high-chart-proj.firebaseio.com">Firebase Sample Data</a>'
   },
   xAxis: {
-    categories: ["Africa", "America", "Asia", "Europe", "Oceania"],
+    categories: ["A", "B", "AB", "0"],
     title: {
       text: null
     }
@@ -28,7 +28,7 @@ const data = {
   yAxis: {
     min: 0,
     title: {
-      text: "Population (millions)",
+      text: "Number of patients",
       align: "high"
     },
     labels: {
@@ -36,7 +36,7 @@ const data = {
     }
   },
   tooltip: {
-    valueSuffix: " millions"
+    valueSuffix: " people"
   },
   plotOptions: {
     bar: {
@@ -62,27 +62,25 @@ const data = {
   },
   series: [
     {
-      name: "Year 1800",
-      data: [107, 31, 635, 203, 2]
+      name: "Blood Group",
+      data: []
     },
-    {
-      name: "Year 1900",
-      data: [133, 156, 947, 408, 6]
-    },
-    {
-      name: "Year 2012",
-      data: [1052, 954, 4250, 740, 38]
-    }
+    
   ]
 };
 export default {
   components: {
     VueHighcharts
   },
+  props: ["data"],
   data() {
     return {
       options: data
-    };
-  }
+    }; 
+  },
+    created(){
+      
+      data.series[0].data = this.data 
+    }
 };
 </script>

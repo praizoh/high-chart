@@ -1,19 +1,18 @@
 <template>
   <v-app>
     <v-content>
-      <BarChart/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import BarChart from './components/Barchart';
 
 export default {
   name: 'App',
 
   components: {
-    BarChart,
+    
   },
 
   data(){
