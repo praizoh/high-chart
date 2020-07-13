@@ -2,7 +2,8 @@
     <div>
         <v-toolbar>
             <v-spacer></v-spacer>
-            <v-btn to='/agerange'>Age range chart</v-btn>
+            <v-toolbar-title>TEST</v-toolbar-title>
+            <!-- <v-btn to='/agerange'>Age range chart</v-btn> -->
         </v-toolbar>
         <v-container>
         
